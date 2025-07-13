@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Venda Seu Provedor | Acesso Livre</title>
+  <link rel="icon" type="image/svg+xml" href="/vite.svg">
+  <meta name="description" content="Inicie o processo de venda do seu provedor de internet com a Acesso Livre. Oferecemos avaliação justa e um processo transparente.">
+  <style>
+    body { font-family: 'Segoe UI', Arial, sans-serif; background: #f8fafc; margin: 0; color: #222; }
+    .gradient-text { background: linear-gradient(90deg, #2563eb, #6366f1); color: transparent; -webkit-background-clip: text; background-clip: text; }
+    header { background: rgba(255,255,255,.85); box-shadow: 0 2px 8px 0 #0001; position: fixed; width:100%; top:0; left:0; z-index: 10; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+    .nav { display: flex; align-items: center; justify-content: space-between; padding: 1rem 0; }
+    .logo { display: flex; align-items: center; gap: .5rem; font-weight: bold; font-size: 1.5rem; color: #2563eb;}
+    .logo svg { height: 2rem; width: 2rem; color: #2563eb;}
+    nav ul { display: flex; gap: 2rem; list-style: none; margin: 0; padding: 0; }
+    nav ul li a { color: #64748b; text-decoration: none; font-weight: 500; transition: color .2s;}
+    nav ul li a:hover { color: #2563eb;}
+    .cta-btn { background: linear-gradient(90deg, #2563eb, #6366f1); color: #fff; border: none; border-radius: .5rem; padding: .7rem 1.6rem; font-size: 1rem; font-weight: 600; cursor: pointer; transition: filter .2s; text-decoration: none;}
+    main { padding-top: 5.5rem; }
+    .hero-section { padding: 5rem 0 3rem; background: linear-gradient(110deg, #f1f5f9 60%, #e0e7ff 100%); text-align: center;}
+    .hero-section h1 { font-size: 2.5rem; font-weight: 800; margin-bottom: 1rem; }
+    .hero-section p { color: #64748b; font-size: 1.2rem; max-width: 600px; margin: 0 auto 2rem; }
+    .form-card { background: #fff; border-radius: 1.5rem; box-shadow: 0 4px 32px #0001; padding: 2.5rem 1.5rem; max-width: 700px; margin: 2.5rem auto 2rem auto; }
+    .progress-bar-bg { background: #e2e8f0; border-radius: 999px; height: 10px; width: 100%; margin-bottom: 1rem; }
+    .progress-bar { background: linear-gradient(90deg, #2563eb, #6366f1); height: 10px; border-radius: 999px; width: 25%; transition: width 0.3s; }
+    .form-title { font-size: 1.5rem; font-weight: bold; color: #1e293b; margin-bottom: 2rem; margin-top: 1rem; text-align: left; }
+    .form-group { display: grid; grid-template-columns: 1fr; gap: 1.5rem; margin-bottom: 1.5rem; }
+    .form-row { display: grid; grid-template-columns: 1fr; gap: 1.5rem; }
+    label { display: block; font-size: 1rem; font-weight: 500; color: #334155; margin-bottom: 0.3rem; }
+    input[type="text"], input[type="email"], input[type="number"] { width: 100%; padding: 0.75rem; border: 1px solid #cbd5e1; border-radius: 0.5rem; font-size: 1rem; transition: border-color 0.2s; }
+    input[type="text"]:focus, input[type="email"]:focus, input[type="number"]:focus { outline: none; border-color: #2563eb; box-shadow: 0 0 0 2px #2563eb33; }
+    .form-actions { display: flex; justify-content: space-between; margin-top: 2rem; }
+    .btn-outline { background: #f8fafc; color: #64748b; border: 2px solid #94a3b8; border-radius: .5rem; padding: 0.6rem 1.5rem; font-size: 1rem; font-weight: 500; cursor: pointer; display: flex; align-items: center; gap: 0.5rem; opacity: 1; transition: opacity .2s; }
+    .btn-outline:disabled { cursor: not-allowed; opacity: 0.5; }
+    .btn-gradient { background: linear-gradient(90deg, #2563eb, #6366f1); color: #fff; border: none; border-radius: .5rem; padding: 0.6rem 1.5rem; font-size: 1rem; font-weight: 500; cursor: pointer; display: flex; align-items: center; gap: 0.5rem; transition: filter .2s; }
+    .btn-gradient:hover { filter: brightness(.95);}
+    @media (min-width: 600px) { .form-group, .form-row { grid-template-columns: 1fr 1fr; } .form-title { text-align: left; } }
+    @media (max-width: 767px) { nav ul, .cta-btn { display: none;} .form-card { padding: 1.2rem;} }
+    footer { background: #0f172a; color: #fff; padding: 2rem 0; margin-top: 2rem; }
+    .footer-content { display: flex; flex-direction: column; gap: 1.5rem; align-items: center;}
+    .footer-content .logo { color: #60a5fa; }
+    .footer-content p { color: #cbd5e1; margin: .3rem 0; }
+    .hidden { display: none; }
+    .success-msg { text-align: center; color: #2563eb; font-size: 1.3rem; font-weight: bold; margin-top: 2rem; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a href="index.html" class="logo">
+        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13a10 10 0 0 1 14 0"/><path d="M8.5 16.5a5 5 0 0 1 7 0"/><path d="M2 8.82a15 15 0 0 1 20 0"/><line x1="12" x2="12.01" y1="20" y2="20"/></svg>
+        <span>Acesso Livre</span>
+      </a>
+      <nav>
+        <ul>
+          <li><a href="index.html#sobre">Sobre</a></li>
+          <li><a href="index.html#servicos">Serviços</a></li>
+          <li><a href="index.html#processo">Processo</a></li>
+          <li><a href="index.html#contato">Contato</a></li>
+        </ul>
+      </nav>
+      <a href="vender-provedor.html" class="cta-btn">Vender Provedor</a>
+    </div>
+  </header>
+  <main>
+    <section class="hero-section">
+      <div class="container">
+        <h1><span class="gradient-text">Venda seu Provedor</span> com Confiança</h1>
+        <p>Preencha o formulário abaixo para iniciar uma avaliação confidencial e sem compromisso do seu provedor de internet. Nossa equipe de especialistas entrará em contato em breve.</p>
+      </div>
+    </section>
+    <section>
+      <div class="form-card">
+        <div>
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+            <span id="step-indicator" style="color:#2563eb; font-weight:500; font-size:.95rem;">Estágio 1 de 4</span>
+          </div>
+          <div class="progress-bar-bg">
+            <div class="progress-bar" id="progress-bar" style="width: 25%;"></div>
+          </div>
+          <div class="form-title" id="form-title">Informações de Contato</div>
+        </div>
+        <form id="multiStepForm" method="POST" action="enviar.php" autocomplete="off">
+          <!-- Etapa 1 -->
+          <div class="step" id="step-1">
+            <div class="form-group">
+              <div>
+                <label for="contactName">Seu Nome</label>
+                <input type="text" id="contactName" name="contactName" placeholder="Ex: João da Silva" required>
+              </div>
+              <div>
+                <label for="email">Seu E-mail</label>
+                <input type="email" id="email" name="email" placeholder="Ex: joao.silva@email.com" required>
+              </div>
+              <div>
+                <label for="providerName">Nome do Provedor</label>
+                <input type="text" id="providerName" name="providerName" placeholder="Ex: Internet Rápida Ltda." required>
+              </div>
+              <div>
+                <label for="cityState">Cidade/Estado de Atuação</label>
+                <input type="text" id="cityState" name="cityState" placeholder="Ex: São Paulo, SP" required>
+              </div>
+            </div>
+          </div>
+          <!-- Etapa 2 -->
+          <div class="step hidden" id="step-2">
+            <div class="form-group">
+              <div>
+                <label for="clients">Quantidade de Clientes</label>
+                <input type="number" id="clients" name="clients" min="1" required placeholder="Ex: 2000">
+              </div>
+              <div>
+                <label for="revenue">Faturamento Mensal Aproximado (R$)</label>
+                <input type="number" id="revenue" name="revenue" min="0" required placeholder="Ex: 50000">
+              </div>
+              <div>
+                <label for="infrastructure">Infraestrutura</label>
+                <input type="text" id="infrastructure" name="infrastructure" placeholder="Ex: Fibra óptica, rádio, etc." required>
+              </div>
+              <div>
+                <label for="employees">Colaboradores</label>
+                <input type="number" id="employees" name="employees" min="0" required placeholder="Ex: 15">
+              </div>
+            </div>
+          </div>
+          <!-- Etapa 3 -->
+          <div class="step hidden" id="step-3">
+            <div class="form-group">
+              <div>
+                <label for="license">Situação da Licença SCM</label>
+                <input type="text" id="license" name="license" placeholder="Ex: Regularizada, em andamento" required>
+              </div>
+              <div>
+                <label for="debts">Possui dívidas relevantes?</label>
+                <input type="text" id="debts" name="debts" placeholder="Ex: Não, Sim (detalhar)" required>
+              </div>
+              <div>
+                <label for="reason">Motivo da Venda</label>
+                <input type="text" id="reason" name="reason" placeholder="Ex: Mudança de área, aposentadoria, etc." required>
+              </div>
+              <div>
+                <label for="otherInfo">Outras Informações Relevantes</label>
+                <input type="text" id="otherInfo" name="otherInfo" placeholder="Opcional">
+              </div>
+            </div>
+          </div>
+          <!-- Etapa 4 -->
+          <div class="step hidden" id="step-4">
+            <div style="text-align:center;">
+              <h3 style="color:#2563eb; margin-bottom:1.2rem;">Revisar Informações</h3>
+              <div id="reviewInfo" style="text-align:left; background:#f1f5f9; border-radius:12px; padding:1rem 1.5rem; font-size:1rem;"></div>
+            </div>
+          </div>
+          <div class="form-actions">
+            <button class="btn-outline" id="prevBtn" type="button" disabled>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+              Anterior
+            </button>
+            <button class="btn-gradient" id="nextBtn" type="button">
+              Próximo
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </button>
+            <button class="btn-gradient hidden" id="submitBtn" type="submit">
+              Enviar
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </button>
+          </div>
+        </form>
+        <div id="successMessage" class="success-msg hidden">
+          Formulário enviado com sucesso! Nossa equipe entrará em contato em breve.
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <div class="container footer-content">
+      <a href="index.html" class="logo">
+        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13a10 10 0 0 1 14 0"/><path d="M8.5 16.5a5 5 0 0 1 7 0"/><path d="M2 8.82a15 15 0 0 1 20 0"/><line x1="12" x2="12.01" y1="20" y2="20"/></svg>
+        <span>Acesso Livre</span>
+      </a>
+      <p>© 2025 Acesso Livre. Todos os direitos reservados.</p>
+      <p>Especialistas em aquisições de provedores de internet</p>
+    </div>
+  </footer>
+  <script>
+    // Dados dos passos
+    const steps = [
+      {
+        title: 'Informações de Contato',
+        indicator: 'Estágio 1 de 4',
+        percent: 25,
+        fields: ['contactName', 'email', 'providerName', 'cityState'],
+      },
+      {
+        title: 'Dados do Provedor',
+        indicator: 'Estágio 2 de 4',
+        percent: 50,
+        fields: ['clients', 'revenue', 'infrastructure', 'employees'],
+      },
+      {
+        title: 'Situação e Motivos',
+        indicator: 'Estágio 3 de 4',
+        percent: 75,
+        fields: ['license', 'debts', 'reason', 'otherInfo'],
+      },
+      {
+        title: 'Revisar Informações',
+        indicator: 'Estágio 4 de 4',
+        percent: 100,
+        fields: [],
+      }
+    ];
+
+    let currentStep = 0;
+
+    const stepEls = steps.map((_, i) => document.getElementById(`step-${i+1}`));
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const submitBtn = document.getElementById('submitBtn');
+    const stepIndicator = document.getElementById('step-indicator');
+    const progressBar = document.getElementById('progress-bar');
+    const formTitle = document.getElementById('form-title');
+    const form = document.getElementById('multiStepForm');
+    const reviewInfo = document.getElementById('reviewInfo');
+    const successMessage = document.getElementById('successMessage');
+
+    function showStep(idx) {
+      stepEls.forEach((el, i) => {
+        if (i === idx) el.classList.remove('hidden');
+        else el.classList.add('hidden');
+      });
+      stepIndicator.textContent = steps[idx].indicator;
+      progressBar.style.width = steps[idx].percent+"%";
+      formTitle.textContent = steps[idx].title;
+      prevBtn.disabled = idx === 0;
+      nextBtn.classList.toggle('hidden', idx === steps.length-1);
+      submitBtn.classList.toggle('hidden', idx !== steps.length-1);
+      if (idx === steps.length-1) fillReview();
+    }
+
+    function validateStep(idx) {
+      const fields = steps[idx].fields;
+      let valid = true;
+      fields.forEach(field => {
+        const input = document.getElementById(field);
+        if (input && input.hasAttribute('required')) {
+          if (!input.value.trim()) {
+            input.style.borderColor = "red";
+            valid = false;
+          } else {
+            input.style.borderColor = "#cbd5e1";
+          }
+        }
+      });
+      return valid;
+    }
+
+    function fillReview() {
+      let html = '<ul style="list-style:disc; padding-left:20px;">';
+      steps.forEach(step => {
+        step.fields.forEach(field => {
+          const input = document.getElementById(field);
+          if (input) {
+            const label = input.previousElementSibling ? input.previousElementSibling.textContent : field;
+            html += `<li><strong>${label}:</strong> ${input.value ? input.value : '<i>Não informado</i>'}</li>`;
+          }
+        });
+      });
+      html += '</ul>';
+      reviewInfo.innerHTML = html;
+    }
+
+    prevBtn.onclick = function() {
+      if (currentStep > 0) {
+        currentStep--;
+        showStep(currentStep);
+      }
+    };
+
+    nextBtn.onclick = function() {
+      if (!validateStep(currentStep)) return;
+      if (currentStep < steps.length-1) {
+        currentStep++;
+        showStep(currentStep);
+      }
+    };
+
+    // Enter avança se não for submit final
+    form.addEventListener("keydown", function(e) {
+      if (e.key === "Enter" && submitBtn.classList.contains('hidden')) {
+        e.preventDefault();
+        nextBtn.click();
+      }
+    });
+
+    // Remove borda vermelha ao digitar
+    document.querySelectorAll('input').forEach(input => {
+      input.addEventListener('input', function() {
+        this.style.borderColor = "#cbd5e1";
+      });
+    });
+
+    // Inicializa
+    showStep(currentStep);
+  </script>
+</body>
+</html>
