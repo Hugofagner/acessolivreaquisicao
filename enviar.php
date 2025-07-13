@@ -6,7 +6,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     foreach($_POST as $campo => $valor) {
         $mensagem .= ucfirst($campo) . ": " . htmlspecialchars($valor) . "\n";
     }
-    $headers = "From: site@seudominio.com\r\nReply-To: site@seudominio.com\r\n";
+    $headers = "From: hugofagner11@gmail.com\r\nReply-To: hugofagner11@gmail.com\r\n";
 
     if(mail($destino, $assunto, $mensagem, $headers)){
         echo "<h2 style='color:#2563eb;font-family:sans-serif;margin-top:2rem;text-align:center;'>Formulário enviado com sucesso!<br>Sua mensagem foi recebida e entraremos em contato em breve.</h2>";
