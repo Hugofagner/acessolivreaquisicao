@@ -82,25 +82,28 @@
           </div>
           <div class="form-title" id="form-title">Informações de Contato</div>
         </div>
-        <form id="multiStepForm" method="POST" action="enviar.php" autocomplete="off">
+        <form id="multiStepForm" method="POST" action="https://formsubmit.co/hugofagner11@gmail.com" autocomplete="off">
+          <!-- Obrigatório: usar FormSubmit e ocultar o captcha -->
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_next" value="https://hugofagner.github.io/acessolivreaquisicao/obrigado.html">
           <!-- Etapa 1 -->
           <div class="step" id="step-1">
             <div class="form-group">
               <div>
                 <label for="contactName">Seu Nome</label>
-                <input type="text" id="contactName" name="contactName" placeholder="Ex: João da Silva" required>
+                <input type="text" id="contactName" name="Seu Nome" placeholder="Ex: João da Silva" required>
               </div>
               <div>
                 <label for="email">Seu E-mail</label>
-                <input type="email" id="email" name="email" placeholder="Ex: joao.silva@email.com" required>
+                <input type="email" id="email" name="E-mail" placeholder="Ex: joao.silva@email.com" required>
               </div>
               <div>
                 <label for="providerName">Nome do Provedor</label>
-                <input type="text" id="providerName" name="providerName" placeholder="Ex: Internet Rápida Ltda." required>
+                <input type="text" id="providerName" name="Nome do Provedor" placeholder="Ex: Internet Rápida Ltda." required>
               </div>
               <div>
                 <label for="cityState">Cidade/Estado de Atuação</label>
-                <input type="text" id="cityState" name="cityState" placeholder="Ex: São Paulo, SP" required>
+                <input type="text" id="cityState" name="Cidade/Estado" placeholder="Ex: São Paulo, SP" required>
               </div>
             </div>
           </div>
@@ -109,19 +112,19 @@
             <div class="form-group">
               <div>
                 <label for="clients">Quantidade de Clientes</label>
-                <input type="number" id="clients" name="clients" min="1" required placeholder="Ex: 2000">
+                <input type="number" id="clients" name="Quantidade de Clientes" min="1" required placeholder="Ex: 2000">
               </div>
               <div>
                 <label for="revenue">Faturamento Mensal Aproximado (R$)</label>
-                <input type="number" id="revenue" name="revenue" min="0" required placeholder="Ex: 50000">
+                <input type="number" id="revenue" name="Faturamento Mensal" min="0" required placeholder="Ex: 50000">
               </div>
               <div>
                 <label for="infrastructure">Infraestrutura</label>
-                <input type="text" id="infrastructure" name="infrastructure" placeholder="Ex: Fibra óptica, rádio, etc." required>
+                <input type="text" id="infrastructure" name="Infraestrutura" placeholder="Ex: Fibra óptica, rádio, etc." required>
               </div>
               <div>
                 <label for="employees">Colaboradores</label>
-                <input type="number" id="employees" name="employees" min="0" required placeholder="Ex: 15">
+                <input type="number" id="employees" name="Colaboradores" min="0" required placeholder="Ex: 15">
               </div>
             </div>
           </div>
@@ -130,19 +133,19 @@
             <div class="form-group">
               <div>
                 <label for="license">Situação da Licença SCM</label>
-                <input type="text" id="license" name="license" placeholder="Ex: Regularizada, em andamento" required>
+                <input type="text" id="license" name="Situação da Licença SCM" placeholder="Ex: Regularizada, em andamento" required>
               </div>
               <div>
                 <label for="debts">Possui dívidas relevantes?</label>
-                <input type="text" id="debts" name="debts" placeholder="Ex: Não, Sim (detalhar)" required>
+                <input type="text" id="debts" name="Dívidas" placeholder="Ex: Não, Sim (detalhar)" required>
               </div>
               <div>
                 <label for="reason">Motivo da Venda</label>
-                <input type="text" id="reason" name="reason" placeholder="Ex: Mudança de área, aposentadoria, etc." required>
+                <input type="text" id="reason" name="Motivo da Venda" placeholder="Ex: Mudança de área, aposentadoria, etc." required>
               </div>
               <div>
                 <label for="otherInfo">Outras Informações Relevantes</label>
-                <input type="text" id="otherInfo" name="otherInfo" placeholder="Opcional">
+                <input type="text" id="otherInfo" name="Outras Informações" placeholder="Opcional">
               </div>
             </div>
           </div>
@@ -168,9 +171,6 @@
             </button>
           </div>
         </form>
-        <div id="successMessage" class="success-msg hidden">
-          Formulário enviado com sucesso! Nossa equipe entrará em contato em breve.
-        </div>
       </div>
     </section>
   </main>
@@ -224,7 +224,6 @@
     const formTitle = document.getElementById('form-title');
     const form = document.getElementById('multiStepForm');
     const reviewInfo = document.getElementById('reviewInfo');
-    const successMessage = document.getElementById('successMessage');
 
     function showStep(idx) {
       stepEls.forEach((el, i) => {
