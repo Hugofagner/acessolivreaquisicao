@@ -1,142 +1,285 @@
-<html lang="pt" class="translated-ltr"><head>
-		<meta charset="UTF-8">
-		<link rel="icon" type="image/svg+xml" href="/vite.svg">
-		<meta name="generator" content="Hostinger Horizons">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Acesso Livre - Especialistas em Aquisições de Provedores de Internet</title>
-		<script type="module" crossorigin="" src="/assets/index-7b38e561.js"></script>
-		<link rel="stylesheet" href="/assets/index-2b740f02.css">
-		<script type="module">
-window.onerror = (message, source, lineno, colno, errorObj) => {
-	const errorDetails = errorObj ? JSON.stringify({
-		name: errorObj.name,
-		message: errorObj.message,
-		stack: errorObj.stack,
-		source,
-		lineno,
-		colno,
-	}) : null;
-
-	window.parent.postMessage({
-		type: 'horizons-runtime-error',
-		message,
-		error: errorDetails
-	}, '*');
-};
-</script>
-		<script type="module">
-const observer = new MutationObserver((mutations) => {
-	for (const mutation of mutations) {
-		for (const addedNode of mutation.addedNodes) {
-			if (
-				addedNode.nodeType === Node.ELEMENT_NODE &&
-				(
-					addedNode.tagName?.toLowerCase() === 'vite-error-overlay' ||
-					addedNode.classList?.contains('backdrop')
-				)
-			) {
-				handleViteOverlay(addedNode);
-			}
-		}
-	}
-});
-
-observer.observe(document.documentElement, {
-	childList: true,
-	subtree: true
-});
-
-function handleViteOverlay(node) {
-	if (!node.shadowRoot) {
-		return;
-	}
-
-	const backdrop = node.shadowRoot.querySelector('.backdrop');
-
-	if (backdrop) {
-		const overlayHtml = backdrop.outerHTML;
-		const parser = new DOMParser();
-		const doc = parser.parseFromString(overlayHtml, 'text/html');
-		const messageBodyElement = doc.querySelector('.message-body');
-		const fileElement = doc.querySelector('.file');
-		const messageText = messageBodyElement ? messageBodyElement.textContent.trim() : '';
-		const fileText = fileElement ? fileElement.textContent.trim() : '';
-		const error = messageText + (fileText ? ' File:' + fileText : '');
-
-		window.parent.postMessage({
-			type: 'horizons-vite-error',
-			error,
-		}, '*');
-	}
-}
-</script>
-		<script type="module">
-const originalConsoleError = console.error;
-console.error = function(...args) {
-	originalConsoleError.apply(console, args);
-
-	let errorString = '';
-
-	for (let i = 0; i < args.length; i++) {
-		const arg = args[i];
-		if (arg instanceof Error) {
-			errorString = arg.stack || `${arg.name}: ${arg.message}`;
-			break;
-		}
-	}
-
-	if (!errorString) {
-		errorString = args.map(arg => typeof arg === 'object' ? JSON.stringify(arg) : String(arg)).join(' ');
-	}
-
-	window.parent.postMessage({
-		type: 'horizons-console-error',
-		error: errorString
-	}, '*');
-};
-</script>
-		<script type="module">
-const originalFetch = window.fetch;
-
-window.fetch = function(...args) {
-	const url = args[0] instanceof Request ? args[0].url : args[0];
-
-	// Skip WebSocket URLs
-	if (url.startsWith('ws:') || url.startsWith('wss:')) {
-		return originalFetch.apply(this, args);
-	}
-
-	return originalFetch.apply(this, args)
-		.then(async response => {
-			const contentType = response.headers.get('Content-Type') || '';
-
-			// Exclude HTML document responses
-			const isDocumentResponse =
-				contentType.includes('text/html') ||
-				contentType.includes('application/xhtml+xml');
-
-			if (!response.ok && !isDocumentResponse) {
-					const responseClone = response.clone();
-					const errorFromRes = await responseClone.text();
-					const requestUrl = response.url;
-					console.error(`Fetch error from ${requestUrl}: ${errorFromRes}`);
-			}
-
-			return response;
-		})
-		.catch(error => {
-			if (!url.match(/.html?$/i)) {
-				console.error(error);
-			}
-
-			throw error;
-		});
-};
-</script>
-	<meta name="description" content="Líder em aquisições de provedores de internet no Brasil. Conectamos oportunidades, expandimos negócios e impulsionamos o crescimento do setor de telecomunicações." data-react-helmet="true"><link type="text/css" rel="stylesheet" charset="UTF-8" href="https://www.gstatic.com/_/translate_http/_/ss/k=translate_http.tr.pgV-E-68K-A.L.W.O/am=AMA/d=0/rs=AN8SPfo2HeflihKMbfgwV84pq3lzEm8ziw/m=el_main_css"></head>
-	<body>
-		<div id="root"><div class="min-h-screen flex flex-col"><header class="fixed top-0 w-full z-50 glass-effect" style="opacity: 1; transform: none;"><nav class="container mx-auto px-6 py-4"><div class="flex items-center justify-between"><a class="flex items-center space-x-2" href="/"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-8 w-8 text-blue-600"><path d="M5 13a10 10 0 0 1 14 0"></path><path d="M8.5 16.5a5 5 0 0 1 7 0"></path><path d="M2 8.82a15 15 0 0 1 20 0"></path><line x1="12" x2="12.01" y1="20" y2="20"></line></svg><span class="text-2xl font-bold gradient-text">Acesso Livre</span></a><div class="hidden md:flex items-center space-x-8"><a aria-current="page" class="text-slate-700 hover:text-blue-600 transition-colors font-medium active" href="/#sobre">Sobre</a><a aria-current="page" class="text-slate-700 hover:text-blue-600 transition-colors font-medium active" href="/#servicos">Serviços</a><a aria-current="page" class="text-slate-700 hover:text-blue-600 transition-colors font-medium active" href="/#processo">Processo</a><a aria-current="page" class="text-slate-700 hover:text-blue-600 transition-colors font-medium active" href="/#contato">Contato</a><a class="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700" href="/vender-provedor">Vender Provedor</a></div></div></nav></header><main class="flex-grow"><div style="opacity: 1;"><section class="pt-32 pb-20 hero-pattern"><div class="container mx-auto px-6"><div class="text-center max-w-4xl mx-auto" style="opacity: 1; transform: none;"><h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight" style="opacity: 1; transform: none;"><span class="gradient-text">Líderes em</span><br><span class="text-slate-800">Aquisições de Provedores</span></h1><p class="text-xl md:text-2xl text-slate-600 mb-8 max-w-3xl mx-auto leading-relaxed" style="opacity: 1;">Conectamos oportunidades e expandimos negócios no setor de telecomunicações brasileiro.<strong class="text-blue-600"> Nosso foco é a compra estratégica de provedores de internet.</strong></p><div class="flex flex-col sm:flex-row gap-4 justify-center items-center" style="opacity: 1; transform: none;"><a class="inline-flex items-center justify-center font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-11 rounded-md bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-lg px-8 py-4" href="/vender-provedor">Vender Seu Provedor <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-2 h-5 w-5"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></a><button class="inline-flex items-center justify-center font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-background hover:text-accent-foreground h-11 rounded-md border-2 border-blue-600 text-blue-600 hover:bg-blue-50 text-lg px-8 py-4">Conhecer Oportunidades</button></div></div></div></section><div class="container mx-auto px-6"><div class="grid grid-cols-2 md:grid-cols-4 gap-8 mt-[-4rem] mb-20 z-10 relative"><div class="text-center bg-white rounded-2xl p-6 shadow-xl" style="opacity: 1; transform: none;"><div class="text-3xl md:text-4xl font-bold gradient-text mb-2"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">150+</font></font></div><div class="text-slate-600 font-medium">Aquisições Realizadas</div></div><div class="text-center bg-white rounded-2xl p-6 shadow-xl" style="opacity: 1; transform: none;"><div class="text-3xl md:text-4xl font-bold gradient-text mb-2"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">R$ 2,5 bilhões</font></font></div><div class="text-slate-600 font-medium"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Volume negociado</font></font></div></div><div class="text-center bg-white rounded-2xl p-6 shadow-xl" style="opacity: 1; transform: none;"><div class="text-3xl md:text-4xl font-bold gradient-text mb-2"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">25</font></font></div><div class="text-slate-600 font-medium"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Estados atendidos</font></font></div></div><div class="text-center bg-white rounded-2xl p-6 shadow-xl" style="opacity: 1; transform: none;"><div class="text-3xl md:text-4xl font-bold gradient-text mb-2"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">98%</font></font></div><div class="text-slate-600 font-medium">Taxa de Sucesso</div></div></div></div><section id="sobre" class="py-20 bg-white"><div class="container mx-auto px-6"><div class="max-w-4xl mx-auto text-center mb-16" style="opacity: 0; transform: translateY(60px) translateZ(0px);"><h2 class="text-4xl md:text-5xl font-bold mb-6"><span class="gradient-text">Especialistas</span> em Aquisições</h2><p class="text-xl text-slate-600 leading-relaxed">Somos uma empresa especializada exclusivamente na aquisição de provedores de internet no Brasil. Nossa missão é identificar, avaliar e adquirir provedores com potencial de crescimento, criando valor para todos os envolvidos no processo.</p></div><div class="grid md:grid-cols-3 gap-8"><div class="glass-effect rounded-2xl p-8 text-center hover:shadow-2xl transition-all duration-300" style="opacity: 0; transform: translateY(40px) translateZ(0px);"><div class="bg-gradient-to-r from-blue-600 to-indigo-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-8 w-8 text-white"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg></div><h3 class="text-2xl font-bold mb-4 text-slate-800">Foco Estratégico</h3><p class="text-slate-600 leading-relaxed">Concentramos 100% dos nossos esforços na aquisição de provedores de internet, garantindo expertise especializada.</p></div><div class="glass-effect rounded-2xl p-8 text-center hover:shadow-2xl transition-all duration-300" style="opacity: 0; transform: translateY(40px) translateZ(0px);"><div class="bg-gradient-to-r from-blue-600 to-indigo-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-8 w-8 text-white"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path><path d="M12 5 9.04 7.96a2.17 2.17 0 0 0 0 3.08v0c.82.82 2.13.85 3 .07l2.07-1.9a2.82 2.82 0 0 1 3.79 0l2.96 2.66"></path><path d="m18 15-2-2"></path><path d="m15 18-2-2"></path></svg></div><h3 class="text-2xl font-bold mb-4 text-slate-800">Parcerias Sólidas</h3><p class="text-slate-600 leading-relaxed">Construímos relacionamentos duradouros baseados em transparência, confiança e benefícios mútuos.</p></div><div class="glass-effect rounded-2xl p-8 text-center hover:shadow-2xl transition-all duration-300" style="opacity: 0; transform: translateY(40px) translateZ(0px);"><div class="bg-gradient-to-r from-blue-600 to-indigo-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-8 w-8 text-white"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline><polyline points="16 7 22 7 22 13"></polyline></svg></div><h3 class="text-2xl font-bold mb-4 text-slate-800">Crescimento Sustentável</h3><p class="text-slate-600 leading-relaxed">Impulsionamos o crescimento do setor através de aquisições estratégicas e investimentos inteligentes.</p></div></div></div></section><section id="servicos" class="py-20 bg-gradient-to-br from-blue-50 to-indigo-100"><div class="container mx-auto px-6"><div class="text-center mb-16" style="opacity: 0;"><h2 class="text-4xl md:text-5xl font-bold mb-6">Nossos <span class="gradient-text">Serviços</span></h2><p class="text-xl text-slate-600 max-w-3xl mx-auto">Oferecemos soluções completas para aquisições de provedores, desde a avaliação inicial até a integração final.</p></div><div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8"><div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300" style="opacity: 0; transform: translateY(40px) translateZ(0px);"><div class="bg-gradient-to-r from-blue-600 to-indigo-600 w-14 h-14 rounded-xl flex items-center justify-center mb-6"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-7 w-7 text-white"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"></path><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"></path><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"></path><path d="M10 6h4"></path><path d="M10 10h4"></path><path d="M10 14h4"></path><path d="M10 18h4"></path></svg></div><h3 class="text-xl font-bold mb-4 text-slate-800">Avaliação de Provedores</h3><p class="text-slate-600 leading-relaxed">Análise completa da infraestrutura, base de clientes, receita e potencial de crescimento.</p></div><div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300" style="opacity: 0; transform: translateY(40px) translateZ(0px);"><div class="bg-gradient-to-r from-blue-600 to-indigo-600 w-14 h-14 rounded-xl flex items-center justify-center mb-6"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-7 w-7 text-white"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg></div><h3 class="text-xl font-bold mb-4 text-slate-800"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Due diligence</font></font></h3><p class="text-slate-600 leading-relaxed">Processo rigoroso de verificação financeira, legal e operacional antes da aquisição.</p></div><div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300" style="opacity: 0; transform: translateY(40px) translateZ(0px);"><div class="bg-gradient-to-r from-blue-600 to-indigo-600 w-14 h-14 rounded-xl flex items-center justify-center mb-6"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-7 w-7 text-white"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg></div><h3 class="text-xl font-bold mb-4 text-slate-800">Integração Rápida</h3><p class="text-slate-600 leading-relaxed">Processo otimizado de integração que minimiza interrupções e maximiza sinergias.</p></div><div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300" style="opacity: 0; transform: translateY(40px) translateZ(0px);"><div class="bg-gradient-to-r from-blue-600 to-indigo-600 w-14 h-14 rounded-xl flex items-center justify-center mb-6"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-7 w-7 text-white"><circle cx="12" cy="8" r="6"></circle><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"></path></svg></div><h3 class="text-xl font-bold mb-4 text-slate-800">Valorização Justa</h3><p class="text-slate-600 leading-relaxed">Metodologia transparente de avaliação que garante preços justos para vendedores.</p></div><div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300" style="opacity: 0; transform: translateY(40px) translateZ(0px);"><div class="bg-gradient-to-r from-blue-600 to-indigo-600 w-14 h-14 rounded-xl flex items-center justify-center mb-6"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-7 w-7 text-white"><circle cx="12" cy="12" r="10"></circle><line x1="2" x2="22" y1="12" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg></div><h3 class="text-xl font-bold mb-4 text-slate-800">Expansão Geográfica</h3><p class="text-slate-600 leading-relaxed">Estratégia de crescimento através de aquisições em regiões estratégicas do Brasil.</p></div><div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300" style="opacity: 0; transform: translateY(40px) translateZ(0px);"><div class="bg-gradient-to-r from-blue-600 to-indigo-600 w-14 h-14 rounded-xl flex items-center justify-center mb-6"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-7 w-7 text-white"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg></div><h3 class="text-xl font-bold mb-4 text-slate-800">Suporte Contínuo</h3><p class="text-slate-600 leading-relaxed">Acompanhamento pós-aquisição para garantir transição suave e crescimento sustentável.</p></div></div></div></section><section id="processo" class="py-20 bg-white"><div class="container mx-auto px-6"><div class="text-center mb-16" style="opacity: 0;"><h2 class="text-4xl md:text-5xl font-bold mb-6">Nosso <span class="gradient-text">Processo</span></h2><p class="text-xl text-slate-600 max-w-3xl mx-auto">Um processo estruturado e transparente que garante aquisições bem-sucedidas para todas as partes envolvidas.</p></div><div class="max-w-4xl mx-auto"><div class="flex items-start mb-12 last:mb-0" style="opacity: 0; transform: translateX(-40px) translateZ(0px);"><div class="bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-bold text-lg w-16 h-16 rounded-full flex items-center justify-center mr-6 flex-shrink-0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">01</font></font></div><div><h3 class="text-2xl font-bold mb-3 text-slate-800">Identificação e Contato Inicial</h3><p class="text-slate-600 leading-relaxed text-lg">Identificamos provedores com potencial de aquisição e estabelecemos primeiro contato para avaliar interesse mútuo.</p></div></div><div class="flex items-start mb-12 last:mb-0" style="opacity: 0; transform: translateX(-40px) translateZ(0px);"><div class="bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-bold text-lg w-16 h-16 rounded-full flex items-center justify-center mr-6 flex-shrink-0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">02</font></font></div><div><h3 class="text-2xl font-bold mb-3 text-slate-800">Avaliação Preliminar</h3><p class="text-slate-600 leading-relaxed text-lg">Realizamos análise inicial da empresa, incluindo receita, base de clientes, infraestrutura e posição no mercado.</p></div></div><div class="flex items-start mb-12 last:mb-0" style="opacity: 0; transform: translateX(-40px) translateZ(0px);"><div class="bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-bold text-lg w-16 h-16 rounded-full flex items-center justify-center mr-6 flex-shrink-0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">03</font></font></div><div><h3 class="text-2xl font-bold mb-3 text-slate-800">Proposta e Negociação</h3><p class="text-slate-600 leading-relaxed text-lg">Apresentamos proposta de aquisição baseada em avaliação justa e iniciamos processo de negociação transparente.</p></div></div><div class="flex items-start mb-12 last:mb-0" style="opacity: 0; transform: translateX(-40px) translateZ(0px);"><div class="bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-bold text-lg w-16 h-16 rounded-full flex items-center justify-center mr-6 flex-shrink-0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">04</font></font></div><div><h3 class="text-2xl font-bold mb-3 text-slate-800"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Due Diligence Completa</font></font></h3><p class="text-slate-600 leading-relaxed text-lg">Conduzimos auditoria detalhada de todos os aspectos financeiros, legais e operacionais da empresa.</p></div></div><div class="flex items-start mb-12 last:mb-0" style="opacity: 0; transform: translateX(-40px) translateZ(0px);"><div class="bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-bold text-lg w-16 h-16 rounded-full flex items-center justify-center mr-6 flex-shrink-0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">05</font></font></div><div><h3 class="text-2xl font-bold mb-3 text-slate-800">Fechamento e Integração</h3><p class="text-slate-600 leading-relaxed text-lg">Finalizamos a aquisição e iniciamos processo de integração cuidadosa para garantir continuidade dos serviços.</p></div></div></div></div></section><section class="py-20 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600"><div class="container mx-auto px-6 text-center"><div class="max-w-4xl mx-auto" style="opacity: 0; transform: translateY(40px) translateZ(0px);"><h2 class="text-4xl md:text-5xl font-bold text-white mb-6">Pronto para Vender Seu Provedor?</h2><p class="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">Entre em contato conosco hoje mesmo e descubra como podemos ajudar você a maximizar o valor da sua empresa.</p><a class="inline-flex items-center justify-center ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-11 rounded-md bg-white text-blue-600 hover:bg-blue-50 text-lg px-8 py-4 font-semibold" href="/vender-provedor">Solicitar Avaliação Gratuita <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-2 h-5 w-5"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></a></div></div></section><section id="contato" class="py-20 bg-slate-50"><div class="container mx-auto px-6"><div class="text-center mb-16" style="opacity: 0;"><h2 class="text-4xl md:text-5xl font-bold mb-6">Entre em <span class="gradient-text">Contato</span></h2><p class="text-xl text-slate-600 max-w-3xl mx-auto">Estamos prontos para discutir oportunidades de aquisição. Fale conosco e descubra como podemos trabalhar juntos.</p></div><div class="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto"><div class="bg-white rounded-2xl p-8 text-center shadow-lg hover:shadow-xl transition-all duration-300" style="opacity: 0; transform: translateY(40px) translateZ(0px);"><div class="bg-gradient-to-r from-blue-600 to-indigo-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-8 w-8 text-white"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg></div><h3 class="text-xl font-bold mb-2 text-slate-800">Telefone</h3><p class="text-blue-600 font-semibold mb-2"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">+55 (11) 9999-9999</font></font></p><p class="text-slate-600">Seg-Sex, 9h às 18h</p></div><div class="bg-white rounded-2xl p-8 text-center shadow-lg hover:shadow-xl transition-all duration-300" style="opacity: 0; transform: translateY(40px) translateZ(0px);"><div class="bg-gradient-to-r from-blue-600 to-indigo-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-8 w-8 text-white"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg></div><h3 class="text-xl font-bold mb-2 text-slate-800"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">E-mail</font></font></h3><p class="text-blue-600 font-semibold mb-2">contato@acessolivre.com.br</p><p class="text-slate-600">Resposta em até 24h</p></div><div class="bg-white rounded-2xl p-8 text-center shadow-lg hover:shadow-xl transition-all duration-300" style="opacity: 0; transform: translateY(40px) translateZ(0px);"><div class="bg-gradient-to-r from-blue-600 to-indigo-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-8 w-8 text-white"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg></div><h3 class="text-xl font-bold mb-2 text-slate-800">Escritório</h3><p class="text-blue-600 font-semibold mb-2">São Paulo, SP</p><p class="text-slate-600">Atendemos todo o Brasil</p></div></div></div></section></div></main><footer class="bg-slate-900 text-white py-12"><div class="container mx-auto px-6"><div class="flex flex-col md:flex-row justify-between items-center"><a class="flex items-center space-x-2 mb-4 md:mb-0" href="/"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-8 w-8 text-blue-400"><path d="M5 13a10 10 0 0 1 14 0"></path><path d="M8.5 16.5a5 5 0 0 1 7 0"></path><path d="M2 8.82a15 15 0 0 1 20 0"></path><line x1="12" x2="12.01" y1="20" y2="20"></line></svg><span class="text-2xl font-bold">Acesso Livre</span></a><div class="text-slate-400 text-center md:text-right"><p>© 2025 Acesso Livre. Todos os direitos reservados.</p><p class="mt-2">Especialistas em aquisições de provedores de internet</p></div></div></div></footer><div role="region" aria-label="Notifications (F8)" tabindex="-1" style="pointer-events: none;"><ol tabindex="-1" class="fixed top-0 z-[100] flex max-h-screen w-full flex-col-reverse p-4 sm:bottom-0 sm:right-0 sm:top-auto sm:flex-col md:max-w-[420px]"></ol></div></div></div><div id="goog-gt-tt" class="VIpgJd-yAWNEb-L7lbkb skiptranslate" style="border-radius: 12px; margin: 0 0 0 -23px; padding: 0; font-family: 'Google Sans', Arial, sans-serif;" data-id=""><div id="goog-gt-vt" class="VIpgJd-yAWNEb-hvhgNd"><div class="VIpgJd-yAWNEb-hvhgNd-Ud7fr"><img src="https://fonts.gstatic.com/s/i/productlogos/translate/v14/24px.svg" width="24" height="24" alt=""><div class=" VIpgJd-yAWNEb-hvhgNd-IuizWc-i3jM8c " dir="ltr">Texto original</div></div><div class="VIpgJd-yAWNEb-hvhgNd-k77Iif"><div id="goog-gt-original-text" class="VIpgJd-yAWNEb-nVMfcd-fmcmS VIpgJd-yAWNEb-hvhgNd-axAV1"></div></div><div class="VIpgJd-yAWNEb-hvhgNd-N7Eqid ltr"><div class="VIpgJd-yAWNEb-hvhgNd-N7Eqid-B7I4Od ltr" dir="ltr"><div class="VIpgJd-yAWNEb-hvhgNd-UTujCb">Avalie a tradução</div><div class="VIpgJd-yAWNEb-hvhgNd-eO9mKe">O feedback vai ser usado para ajudar a melhorar o Google Tradutor</div></div><div class="VIpgJd-yAWNEb-hvhgNd-xgov5 ltr"><button id="goog-gt-thumbUpButton" type="button" class="VIpgJd-yAWNEb-hvhgNd-bgm6sf" title="Tradução boa" aria-label="Tradução boa" aria-pressed="false"><span id="goog-gt-thumbUpIcon"><svg width="24" height="24" viewBox="0 0 24 24" focusable="false" class="VIpgJd-yAWNEb-hvhgNd-THI6Vb NMm5M"><path d="M21 7h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 0S7.08 6.85 7 7H2v13h16c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73V9c0-1.1-.9-2-2-2zM7 18H4V9h3v9zm14-7l-3 7H9V8l4.34-4.34L12 9h9v2z"></path></svg></span><span id="goog-gt-thumbUpIconFilled"><svg width="24" height="24" viewBox="0 0 24 24" focusable="false" class="VIpgJd-yAWNEb-hvhgNd-THI6Vb NMm5M"><path d="M21 7h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 0S7.08 6.85 7 7v13h11c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73V9c0-1.1-.9-2-2-2zM5 7H1v13h4V7z"></path></svg></span></button><button id="goog-gt-thumbDownButton" type="button" class="VIpgJd-yAWNEb-hvhgNd-bgm6sf" title="Tradução ruim" aria-label="Tradução ruim" aria-pressed="false"><span id="goog-gt-thumbDownIcon"><svg width="24" height="24" viewBox="0 0 24 24" focusable="false" class="VIpgJd-yAWNEb-hvhgNd-THI6Vb NMm5M"><path d="M3 17h6.31l-.95 4.57-.03.32c0 .41.17.79.44 1.06L9.83 24s7.09-6.85 7.17-7h5V4H6c-.83 0-1.54.5-1.84 1.22l-3.02 7.05c-.09.23-.14.47-.14.73v2c0 1.1.9 2 2 2zM17 6h3v9h-3V6zM3 13l3-7h9v10l-4.34 4.34L12 15H3v-2z"></path></svg></span><span id="goog-gt-thumbDownIconFilled"><svg width="24" height="24" viewBox="0 0 24 24" focusable="false" class="VIpgJd-yAWNEb-hvhgNd-THI6Vb NMm5M"><path d="M3 17h6.31l-.95 4.57-.03.32c0 .41.17.79.44 1.06L9.83 24s7.09-6.85 7.17-7V4H6c-.83 0-1.54.5-1.84 1.22l-3.02 7.05c-.09.23-.14.47-.14.73v2c0 1.1.9 2 2 2zm16 0h4V4h-4v13z"></path></svg></span></button></div></div><div id="goog-gt-votingHiddenPane" class="VIpgJd-yAWNEb-hvhgNd-aXYTce"><form id="goog-gt-votingForm" action="//translate.googleapis.com/translate_voting?client=te_lib" method="post" target="votingFrame" class="VIpgJd-yAWNEb-hvhgNd-aXYTce"><input type="text" name="sl" id="goog-gt-votingInputSrcLang"><input type="text" name="tl" id="goog-gt-votingInputTrgLang"><input type="text" name="query" id="goog-gt-votingInputSrcText"><input type="text" name="gtrans" id="goog-gt-votingInputTrgText"><input type="text" name="vote" id="goog-gt-votingInputVote"></form><iframe name="votingFrame" frameborder="0"></iframe></div></div></div>
-		
-	
-
-</body></html>
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Acesso Livre - Especialistas em Aquisições de Provedores de Internet</title>
+  <link rel="icon" type="image/svg+xml" href="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/internet-explorer/internet-explorer-original.svg">
+  <meta name="description" content="Líder em aquisições de provedores de internet no Brasil. Conectamos oportunidades, expandimos negócios e impulsionamos o crescimento do setor de telecomunicações.">
+  <style>
+    :root {
+      --blue: #2563eb;
+      --indigo: #6366f1;
+      --purple: #a21caf;
+      --slate: #64748b;
+      --bg: #f8fafc;
+    }
+    html, body {
+      margin: 0; padding: 0;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: var(--bg);
+      color: #222;
+      scroll-behavior: smooth;
+    }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+    header {
+      background: rgba(255,255,255,.85);
+      box-shadow: 0 2px 8px 0 #0001;
+      position: fixed; width:100%; top:0; left:0; z-index: 10;
+      transition: background .3s;
+    }
+    .nav {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1rem 0;
+    }
+    .logo { display: flex; align-items: center; gap: .5rem; font-weight: bold; font-size: 1.5rem; color: var(--blue);}
+    .logo svg { height: 2rem; width: 2rem; color: var(--blue);}
+    nav ul { display: flex; gap: 2rem; list-style: none; margin: 0; padding: 0; }
+    nav ul li a { color: var(--slate); text-decoration: none; font-weight: 500; transition: color .2s;}
+    nav ul li a:hover { color: var(--blue);}
+    .cta-btn {
+      background: linear-gradient(90deg, var(--blue), var(--indigo));
+      color: #fff; border: none; border-radius: .5rem;
+      padding: .7rem 1.6rem; font-size: 1rem; font-weight: 600;
+      cursor: pointer; transition: filter .2s;
+    }
+    .cta-btn:hover { filter: brightness(.95); }
+    main { padding-top: 5.5rem; }
+    /* HERO */
+    .hero {
+      text-align: center; padding: 5rem 0 3rem;
+      background: url('https://www.transparenttextures.com/patterns/symphony.png'), linear-gradient(110deg, #e0e7ff 60%, #fff 100%);
+    }
+    .hero-title { font-size: 2.5rem; font-weight: 800; margin-bottom: 1rem; }
+    .gradient-text { background: linear-gradient(90deg, var(--blue), var(--indigo)); color: transparent; -webkit-background-clip: text; background-clip: text;}
+    .hero-sub { font-size: 1.2rem; color: var(--slate); max-width: 600px; margin: 0 auto 2rem; }
+    .hero-actions { display: flex; flex-direction: column; gap: 1rem; align-items: center; justify-content: center;}
+    .hero-actions a, .hero-actions button {
+      display: inline-flex; align-items: center; gap: .5rem; font-size: 1.1rem;
+      border-radius: .5rem; border: none; outline: none; font-weight: 600;
+      padding: .85rem 2rem; text-decoration: none; transition: background .2s, color .2s;
+    }
+    .hero-actions a { background: linear-gradient(90deg, var(--blue), var(--indigo)); color: #fff;}
+    .hero-actions a:hover { background: linear-gradient(90deg, #1d4ed8, #4f46e5);}
+    .hero-actions button { background: #fff; color: var(--blue); border: 2px solid var(--blue);}
+    .hero-actions button:hover { background: var(--blue); color: #fff; }
+    /* STATS */
+    .stats { display: grid; grid-template-columns: repeat(2,1fr); gap: 1.5rem; margin: -3rem 0 3rem 0; position: relative; z-index: 1;}
+    .stat { background: #fff; border-radius: 1rem; text-align: center; box-shadow: 0 2px 16px #0001; padding: 2rem 1rem;}
+    .stat .num { font-size: 2rem; font-weight: 700; background: linear-gradient(90deg, var(--blue), var(--indigo)); color: transparent; -webkit-background-clip: text; background-clip: text;}
+    .stat .desc { color: var(--slate); font-weight: 600;}
+    /* SECTIONS */
+    section { padding: 3rem 0; }
+    h2 { font-size: 2rem; font-weight: 700; text-align: center; margin-bottom: 2rem;}
+    .features, .services { display: grid; gap: 2rem; }
+    .features { grid-template-columns: 1fr; }
+    .feature, .service { background: #fff; border-radius: 1rem; padding: 2rem; box-shadow: 0 2px 12px #0001; text-align: center;}
+    .feature svg, .service svg { background: linear-gradient(90deg, var(--blue), var(--indigo)); color: #fff; border-radius: 50%; padding: .7rem; margin-bottom: 1rem;}
+    .service { min-height: 280px; }
+    .process-step {
+      display: flex; align-items: flex-start; gap: 1.5rem; margin-bottom: 2.5rem;
+      max-width: 600px; margin-left: auto; margin-right: auto;
+    }
+    .process-step .icon {
+      background: linear-gradient(90deg, var(--blue), var(--indigo));
+      color: #fff; font-size: 1.3rem; font-weight: bold;
+      border-radius: 50%; width: 3rem; height: 3rem; display: flex; align-items: center; justify-content: center; margin-top: .2rem;
+    }
+    /* CONTATO */
+    .contact-cards { display: grid; gap: 2rem; grid-template-columns: 1fr;}
+    .contact-card { background: #fff; border-radius: 1rem; padding: 2rem; box-shadow: 0 2px 12px #0001; text-align: center;}
+    .contact-card svg { background: linear-gradient(90deg, var(--blue), var(--indigo)); color: #fff; border-radius: 50%; padding: .7rem; margin-bottom: 1rem;}
+    /* FOOTER */
+    footer { background: #0f172a; color: #fff; padding: 2rem 0;}
+    .footer-content { display: flex; flex-direction: column; gap: 1.5rem; align-items: center;}
+    .footer-content .logo { color: #60a5fa; }
+    .footer-content p { color: #cbd5e1; margin: .3rem 0; }
+    /* RESPONSIVO */
+    @media (min-width: 640px) {
+      .hero-title { font-size: 3.2rem;}
+      .features { grid-template-columns: repeat(3,1fr);}
+      .services { grid-template-columns: repeat(3,1fr);}
+      .stats { grid-template-columns: repeat(4,1fr);}
+      .contact-cards { grid-template-columns: repeat(3,1fr);}
+    }
+    @media (max-width: 767px) {
+      nav ul { display: none;}
+      .cta-btn { display: none;}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a href="#" class="logo">
+        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13a10 10 0 0 1 14 0"/><path d="M8.5 16.5a5 5 0 0 1 7 0"/><path d="M2 8.82a15 15 0 0 1 20 0"/><line x1="12" x2="12.01" y1="20" y2="20"/></svg>
+        <span>Acesso Livre</span>
+      </a>
+      <nav>
+        <ul>
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#servicos">Serviços</a></li>
+          <li><a href="#processo">Processo</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </nav>
+      <a href="vender-provedor.html" class="cta-btn">Vender Provedor</a>
+    </div>
+  </header>
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h1 class="hero-title"><span class="gradient-text">Líderes em</span><br>Aquisições de Provedores</h1>
+        <p class="hero-sub">Conectamos oportunidades e expandimos negócios no setor de telecomunicações brasileiro.<br><strong style="color:var(--blue)">Nosso foco é a compra estratégica de provedores de internet.</strong></p>
+        <div class="hero-actions">
+          <a href="vender-provedor.html">Vender Seu Provedor <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+          <button>Conhecer Oportunidades</button>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="container stats">
+        <div class="stat"><div class="num">150+</div><div class="desc">Aquisições Realizadas</div></div>
+        <div class="stat"><div class="num">R$ 2,5 bilhões</div><div class="desc">Volume negociado</div></div>
+        <div class="stat"><div class="num">25</div><div class="desc">Estados atendidos</div></div>
+        <div class="stat"><div class="num">98%</div><div class="desc">Taxa de Sucesso</div></div>
+      </div>
+    </section>
+    <section id="sobre">
+      <h2><span class="gradient-text">Especialistas</span> em Aquisições</h2>
+      <div class="container features">
+        <div class="feature">
+          <svg width="36" height="36" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="18" r="16"/><circle cx="18" cy="18" r="10"/><circle cx="18" cy="18" r="3"/></svg>
+          <h3>Foco Estratégico</h3>
+          <p>Concentramos 100% dos nossos esforços na aquisição de provedores de internet, garantindo expertise especializada.</p>
+        </div>
+        <div class="feature">
+          <svg width="36" height="36" fill="none" stroke="currentColor" stroke-width="2"><path d="M28 21c2-2 4-4.4 4-7.5A7.5 7.5 0 0 0 22.5 6c-2.5 0-4.3.7-6.5 2.5C13.2 6.7 11.4 6 9 6A7.5 7.5 0 0 0 2 13.5c0 3.1 2 5.5 4 7.5l12 12Z"/><path d="M18 7l-4.5 4.5a3 3 0 0 0 0 4.5c1.2 1.2 3.2 1.2 4.5 0l3.1-2.8a3.7 3.7 0 0 1 5 0l4.5 4"/></svg>
+          <h3>Parcerias Sólidas</h3>
+          <p>Construímos relacionamentos duradouros baseados em transparência, confiança e benefícios mútuos.</p>
+        </div>
+        <div class="feature">
+          <svg width="36" height="36" fill="none" stroke="currentColor" stroke-width="2"><polyline points="32 11 20.5 23.5 13.5 16.5 4 29"/><polyline points="24 11 32 11 32 19"/></svg>
+          <h3>Crescimento Sustentável</h3>
+          <p>Impulsionamos o crescimento do setor através de aquisições estratégicas e investimentos inteligentes.</p>
+        </div>
+      </div>
+    </section>
+    <section id="servicos" style="background: linear-gradient(110deg, #e0e7ff 60%, #fff 100%);">
+      <h2>Nossos <span class="gradient-text">Serviços</span></h2>
+      <div class="container services">
+        <div class="service">
+          <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 30V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v24Z"/><path d="M8 16H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h4"/><path d="M24 12h4a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-4"/><path d="M12 8h8"/><path d="M12 14h8"/><path d="M12 20h8"/><path d="M12 26h8"/></svg>
+          <h3>Avaliação de Provedores</h3>
+          <p>Análise completa da infraestrutura, base de clientes, receita e potencial de crescimento.</p>
+        </div>
+        <div class="service">
+          <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="2"><circle cx="16" cy="10" r="6"/><path d="M24 30v-2a6 6 0 0 0-6-6H10a6 6 0 0 0-6 6v2"/><path d="M28 30v-2a6 6 0 0 0-4.5-5.8"/></svg>
+          <h3>Due diligence</h3>
+          <p>Processo rigoroso de verificação financeira, legal e operacional antes da aquisição.</p>
+        </div>
+        <div class="service">
+          <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="2"><polygon points="18 2 6 18 16 18 15 30 28 12 16 12 18 2"/></svg>
+          <h3>Integração Rápida</h3>
+          <p>Processo otimizado de integração que minimiza interrupções e maximiza sinergias.</p>
+        </div>
+        <div class="service">
+          <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="2"><circle cx="16" cy="8" r="8"/><path d="M20.6 17.2 22 30l-10-6-10 6 2.6-12.8"/></svg>
+          <h3>Valorização Justa</h3>
+          <p>Metodologia transparente de avaliação que garante preços justos para vendedores.</p>
+        </div>
+        <div class="service">
+          <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="2"><circle cx="16" cy="16" r="14"/><line x1="2" x2="30" y1="16" y2="16"/><path d="M16 2a21 21 0 0 1 6 14 21 21 0 0 1-6 14 21 21 0 0 1-6-14 21 21 0 0 1 6-14z"/></svg>
+          <h3>Expansão Geográfica</h3>
+          <p>Estratégia de crescimento através de aquisições em regiões estratégicas do Brasil.</p>
+        </div>
+        <div class="service">
+          <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="2"><path d="M30 15.08V16a14 14 0 1 1-8.3-12.8"/><polyline points="30 4 16 20.01 12 16.01"/></svg>
+          <h3>Suporte Contínuo</h3>
+          <p>Acompanhamento pós-aquisição para garantir transição suave e crescimento sustentável.</p>
+        </div>
+      </div>
+    </section>
+    <section id="processo">
+      <h2>Nosso <span class="gradient-text">Processo</span></h2>
+      <div class="container">
+        <div class="process-step">
+          <div class="icon">01</div>
+          <div>
+            <h3>Identificação e Contato Inicial</h3>
+            <p>Identificamos provedores com potencial de aquisição e estabelecemos primeiro contato para avaliar interesse mútuo.</p>
+          </div>
+        </div>
+        <div class="process-step">
+          <div class="icon">02</div>
+          <div>
+            <h3>Avaliação Preliminar</h3>
+            <p>Realizamos análise inicial da empresa, incluindo receita, base de clientes, infraestrutura e posição no mercado.</p>
+          </div>
+        </div>
+        <div class="process-step">
+          <div class="icon">03</div>
+          <div>
+            <h3>Proposta e Negociação</h3>
+            <p>Apresentamos proposta de aquisição baseada em avaliação justa e iniciamos processo de negociação transparente.</p>
+          </div>
+        </div>
+        <div class="process-step">
+          <div class="icon">04</div>
+          <div>
+            <h3>Due Diligence Completa</h3>
+            <p>Conduzimos auditoria detalhada de todos os aspectos financeiros, legais e operacionais da empresa.</p>
+          </div>
+        </div>
+        <div class="process-step">
+          <div class="icon">05</div>
+          <div>
+            <h3>Fechamento e Integração</h3>
+            <p>Finalizamos a aquisição e iniciamos processo de integração cuidadosa para garantir continuidade dos serviços.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section style="background: linear-gradient(90deg, var(--blue), var(--indigo), var(--purple)); color:#fff;">
+      <div class="container" style="text-align:center;">
+        <h2>Pronto para Vender Seu Provedor?</h2>
+        <p style="color:#c7d2fe; font-size:1.2rem; max-width:520px; margin:0 auto 2rem;">Entre em contato conosco hoje mesmo e descubra como podemos ajudar você a maximizar o valor da sua empresa.</p>
+        <a href="vender-provedor.html" class="cta-btn" style="background:#fff; color:var(--blue); font-weight:600;">Solicitar Avaliação Gratuita <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+      </div>
+    </section>
+    <section id="contato">
+      <h2>Entre em <span class="gradient-text">Contato</span></h2>
+      <div class="container contact-cards">
+        <div class="contact-card">
+          <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="2"><path d="M28 23.92v2a2 2 0 0 1-2.18 2 25 25 0 0 1-10.82-3.85 24.5 24.5 0 0 1-7.52-7.52A25 25 0 0 1 2 6.33 2 2 0 0 1 4.11 4h4a2 2 0 0 1 2 1.72c.12 1.12.36 2.23.7 3.25a2 2 0 0 1-.45 2.11l-1.27 1.27a16 16 0 0 0 7.5 7.5l1.27-1.27a2 2 0 0 1 2.11-.45c1.02.34 2.13.58 3.25.7A2 2 0 0 1 28 23.92z"/></svg>
+          <h3>Telefone</h3>
+          <p style="color:var(--blue); font-weight:600;">+55 (11) 9999-9999</p>
+          <p style="color:var(--slate);">Seg-Sex, 9h às 18h</p>
+        </div>
+        <div class="contact-card">
+          <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="2"><rect width="28" height="20" x="2" y="6" rx="2"/><path d="m30 11-12.97 8.7a2.6 2.6 0 0 1-2.06 0L2 11"/></svg>
+          <h3>E-mail</h3>
+          <p style="color:var(--blue); font-weight:600;">contato@acessolivre.com.br</p>
+          <p style="color:var(--slate);">Resposta em até 24h</p>
+        </div>
+        <div class="contact-card">
+          <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="2"><path d="M28 14c0 8-12 16-12 16S4 22 4 14a12 12 0 0 1 24 0Z"/><circle cx="16" cy="14" r="5"/></svg>
+          <h3>Escritório</h3>
+          <p style="color:var(--blue); font-weight:600;">São Paulo, SP</p>
+          <p style="color:var(--slate);">Atendemos todo o Brasil</p>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <div class="container footer-content">
+      <a href="#" class="logo">
+        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13a10 10 0 0 1 14 0"/><path d="M8.5 16.5a5 5 0 0 1 7 0"/><path d="M2 8.82a15 15 0 0 1 20 0"/><line x1="12" x2="12.01" y1="20" y2="20"/></svg>
+        <span>Acesso Livre</span>
+      </a>
+      <p>© 2025 Acesso Livre. Todos os direitos reservados.</p>
+      <p>Especialistas em aquisições de provedores de internet</p>
+    </div>
+  </footer>
+</body>
+</html>
